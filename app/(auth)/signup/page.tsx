@@ -133,18 +133,18 @@ export default function SignupPage() {
   };
 
   return (
-    <main className={`${montserrat.className} h-[calc(100vh-98px)] bg-[#121418] text-white flex items-center justify-center px-6 overflow-hidden`}>
+    <main className={`${montserrat.className} min-h-[calc(100vh-98px)] bg-[#121418] text-white flex items-center justify-center px-4 md:px-6 py-8 md:py-0`}>
       <div className="w-full max-w-7xl">
-        <div className="grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-12 items-center">
           
           {/* Left Section - Signup Form */}
           <div className="flex flex-col justify-center">
-            <div className="mb-6">
-              <h1 className="text-4xl font-bold mb-3">Create Account</h1>
-              <p className="text-gray-400">Join us and start your learning journey</p>
+            <div className="mb-4 md:mb-6">
+              <h1 className="text-3xl md:text-4xl font-bold mb-2 md:mb-3">Create Account</h1>
+              <p className="text-gray-400 text-sm md:text-base">Join us and start your learning journey</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
               {/* Name Input */}
               <TextInput
                 id="name"
@@ -214,7 +214,7 @@ export default function SignupPage() {
               </GradientButton>
 
               {/* Login Link */}
-              <p className="text-center text-gray-400 text-sm">
+              <p className="text-center text-gray-400 text-xs md:text-sm">
                 Already have an account?{' '}
                 <Link href="/login" className="hover:underline text-primary">
                   Log in
@@ -226,10 +226,22 @@ export default function SignupPage() {
           {/* Middle Section - White Divider Line */}
           <div className="hidden md:block w-px h-96 bg-white"></div>
           
+          {/* Mobile Divider */}
+          <div className="md:hidden w-full">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-800"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-4 bg-[#121418] text-gray-500">OR</span>
+              </div>
+            </div>
+          </div>
+          
           {/* Right Section - Social Login */}
           <div className="flex flex-col justify-center">
-            <div className="p-8">
-              <h2 className="text-2xl font-semibold mb-6 text-center">Or sign up with</h2>
+            <div className="p-4 md:p-8">
+              <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6 text-center">Or sign up with</h2>
               
               <div className="space-y-4">
                 {/* Google Sign In */}
@@ -248,8 +260,8 @@ export default function SignupPage() {
                 </SocialLoginButton>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-800">
-                <p className="text-center text-sm text-gray-400">
+              <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-800">
+                <p className="text-center text-xs md:text-sm text-gray-400">
                   By signing up, you agree to our{' '}
                   <Link href="/terms" className="hover:underline text-primary">
                     Terms of Service

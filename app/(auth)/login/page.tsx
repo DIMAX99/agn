@@ -65,18 +65,18 @@ export default function LoginPage() {
   };
 
   return (
-    <main className={`${montserrat.className} h-[calc(100vh-98px)] bg-[#121418] text-white flex items-center justify-center px-6 overflow-hidden`}>
+    <main className={`${montserrat.className} min-h-[calc(100vh-98px)] bg-[#121418] text-white flex items-center justify-center px-4 md:px-6 py-8 md:py-0`}>
       <div className="w-full max-w-7xl">
-        <div className="grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-12 items-center">
           
           {/* Left Section - Email/Password Login */}
           <div className="flex flex-col justify-center">
-            <div className="mb-8">
-              <h1 className="text-4xl font-bold mb-3">Welcome Back</h1>
-              <p className="text-gray-400">Sign in to continue your learning journey</p>
+            <div className="mb-6 md:mb-8">
+              <h1 className="text-3xl md:text-4xl font-bold mb-2 md:mb-3">Welcome Back</h1>
+              <p className="text-gray-400 text-sm md:text-base">Sign in to continue your learning journey</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               {/* Email Input */}
               <TextInput
                 id="email"
@@ -103,12 +103,12 @@ export default function LoginPage() {
               />
 
               {/* Forgot Password Link */}
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-wrap gap-2">
                 <label className="flex items-center">
                   <input type="checkbox" className="mr-2 accent-primary" />
-                  <span className="text-sm text-gray-400">Remember me</span>
+                  <span className="text-xs md:text-sm text-gray-400">Remember me</span>
                 </label>
-                <Link href="/forgot-password" className="text-sm hover:underline text-primary">
+                <Link href="/forgot-password" className="text-xs md:text-sm hover:underline text-primary">
                   Forgot password?
                 </Link>
               </div>
@@ -119,7 +119,7 @@ export default function LoginPage() {
               </GradientButton>
 
               {/* Sign Up Link */}
-              <p className="text-center text-gray-400 text-sm">
+              <p className="text-center text-gray-400 text-xs md:text-sm">
                 Don&apos;t have an account?{' '}
                 <Link href="/signup" className="hover:underline text-primary">
                   Sign up
@@ -131,10 +131,22 @@ export default function LoginPage() {
           {/* Middle Section - White Divider Line */}
           <div className="hidden md:block w-px h-96 bg-white"></div>
           
+          {/* Mobile Divider */}
+          <div className="md:hidden w-full">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-800"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-4 bg-[#121418] text-gray-500">OR</span>
+              </div>
+            </div>
+          </div>
+          
           {/* Right Section - Social Login */}
           <div className="flex flex-col justify-center">
-            <div className="p-8">
-              <h2 className="text-2xl font-semibold mb-6 text-center">Or continue with</h2>
+            <div className="p-4 md:p-8">
+              <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6 text-center">Or continue with</h2>
               
               <div className="space-y-4">
                 {/* Google Sign In */}
@@ -153,8 +165,8 @@ export default function LoginPage() {
                 </SocialLoginButton>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-800">
-                <p className="text-center text-sm text-gray-400">
+              <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-800">
+                <p className="text-center text-xs md:text-sm text-gray-400">
                   By continuing, you agree to our{' '}
                   <Link href="/terms" className="hover:underline text-primary">
                     Terms of Service{' '}
