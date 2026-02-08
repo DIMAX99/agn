@@ -157,9 +157,9 @@ export default function LoginPage() {
                 <p className="text-center text-sm text-gray-400">
                   By continuing, you agree to our{' '}
                   <Link href="/terms" className="hover:underline text-primary">
-                    Terms of Service
+                    Terms of Service{' '}
                   </Link>
-                  and
+                  and{' '}
                   <Link href="/privacy" className="hover:underline text-primary">
                     Privacy Policy
                   </Link>
