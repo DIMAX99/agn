@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { FaGoogle, FaApple, FaFacebook } from 'react-icons/fa';
 import SocialLoginButton from '@/app/components/SocialLoginButton';
 import GradientButton from '@/app/components/GradientButton';
-import TextInput from '@/app/components/TextInput';
-import PasswordInput from '@/app/components/PasswordInput';
-import RadioGroup from '@/app/components/RadioGroup';
+import TextInput from '@/app/components/inputs/TextInput';
+import PasswordInput from '@/app/components/inputs/PasswordInput';
+import RadioGroup from '@/app/components/inputs/RadioGroup';
 import { validateName, validateEmail, validatePassword, validateGender, validateDateOfBirth } from '@/app/utils/validation';
 
 const montserrat = Montserrat({
@@ -127,7 +127,7 @@ export default function SignupPage() {
     // If no errors, proceed with signup
     const hasErrors = Object.values(newErrors).some(error => error !== '');
     if (!hasErrors) {
-      console.log('Signup:', { name, email, password, dateOfBirth, gender });
+      console.log('Successful Signup:', { name, email, password, dateOfBirth, gender });
       // Handle signup or mutation logic here
     }
   };

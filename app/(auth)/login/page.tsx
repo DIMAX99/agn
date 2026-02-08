@@ -6,8 +6,8 @@ import { useState } from 'react';
 import { FaGoogle, FaApple, FaFacebook } from 'react-icons/fa';
 import SocialLoginButton from '@/app/components/SocialLoginButton';
 import GradientButton from '@/app/components/GradientButton';
-import TextInput from '@/app/components/TextInput';
-import PasswordInput from '@/app/components/PasswordInput';
+import TextInput from '@/app/components/inputs/TextInput';
+import PasswordInput from '@/app/components/inputs/PasswordInput';
 import { validateEmail, validatePassword } from '@/app/utils/validation';
 
 const montserrat = Montserrat({
