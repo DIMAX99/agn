@@ -1,65 +1,100 @@
-import Image from "next/image";
+import ProductCard from "./components/ProductCard";
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
+const products = [
+  {
+    id: '1',
+    title: 'Full Stack Web Development',
+    description: 'Learn to build modern web applications with React, Node.js, and MongoDB. Master frontend and backend development.',
+    price: '$99',
+    duration: '12 weeks',
+    level: 'Intermediate'
+  },
+  {
+    id: '2',
+    title: 'Python for Data Science',
+    description: 'Master data analysis, visualization, and machine learning with Python, Pandas, and Scikit-learn.',
+    price: '$79',
+    duration: '8 weeks',
+    level: 'Beginner'
+  },
+  {
+    id: '3',
+    title: 'UI/UX Design Masterclass',
+    description: 'Create beautiful and user-friendly interfaces. Learn Figma, design principles, and prototyping.',
+    price: '$89',
+    duration: '10 weeks',
+    level: 'All Levels'
+  },
+  {
+    id: '4',
+    title: 'Mobile App Development',
+    description: 'Build cross-platform mobile apps with React Native. From basics to publishing on app stores.',
+    price: '$129',
+    duration: '14 weeks',
+    level: 'Intermediate'
+  },
+  {
+    id: '5',
+    title: 'Cloud Computing with AWS',
+    description: 'Learn Amazon Web Services from scratch. Master EC2, S3, Lambda, and cloud architecture best practices.',
+    price: '$149',
+    duration: '16 weeks',
+    level: 'Advanced'
+  },
+  {
+    id: '6',
+    title: 'Digital Marketing Fundamentals',
+    description: 'Master SEO, social media marketing, content strategy, and analytics to grow your business online.',
+    price: '$69',
+    duration: '6 weeks',
+    level: 'Beginner'
+  }
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className={`${montserrat.className} min-h-screen bg-black text-white`}>
+      {/* Hero Section */}
+      <section className="py-20 px-6">
+        <div className="container mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Learn Skills for the <span className="text-primary">Future</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+            Master in-demand skills with our expert-led courses. Start your learning journey today.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button 
+            className="px-8 py-3 rounded-md font-medium text-lg transition-all duration-200"
+            style={{ backgroundColor: 'var(--primary-color)', color: 'black' }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Explore Courses
+          </button>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Products Section */}
+      <section className="py-16 px-6 bg-linear-to-b from-black to-gray-950">
+        <div className="container mx-auto">
+          <div className="mb-12">
+            <h2 className="text-4xl font-bold mb-4">Popular Courses</h2>
+            <p className="text-gray-400 text-lg">
+              Choose from our most popular courses and start learning today
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <ProductCard key={product.id} {...product} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

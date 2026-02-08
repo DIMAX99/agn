@@ -3,11 +3,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-color: #00C39A;
+  --primary-hover: #00d4aa;
+  --secondary-color: #FFD700;
+  --error-color: #ef4444;
+  --gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  --gradient-45: linear-gradient(45deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary-color);
+  --color-secondary: var(--secondary-color);
+  --color-error: var(--error-color);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
